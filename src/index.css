@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Especial";
+  src: url("/src/assets/fonts/Inter.ttf");
+}
+@theme {
+  /* Primary brand */
+
+  --color-primary-500: oklch(0.53 0.24 330);
+  --color-primary-600: oklch(0.47 0.22 330);
+  --color-primary-400: oklch(0.62 0.22 330);
+
+  /* Gradient header */
+
+  --color-brand-start: oklch(0.46 0.23 325);
+  --color-brand-end: oklch(0.58 0.24 335);
+
+  /* Background */
+
+  --color-background: oklch(0.97 0.01 260);
+
+  /* Borders */
+
+  --color-border: oklch(0.91 0.01 260);
+
+  /* Text */
+
+  --color-text-primary: oklch(0.28 0.02 260);
+  --color-text-secondary: oklch(0.55 0.02 260);
+
+  /* UI neutrals */
+
+  --color-surface: oklch(1 0 0);
+  --color-surface-muted: oklch(0.96 0.01 260);
+}
