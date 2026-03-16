@@ -13,6 +13,9 @@ import { Route as RecalculoInsumosRouteImport } from './routes/recalculo-insumos
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UsersCreateRouteImport } from './routes/users/create'
+import { Route as PartidasVinculacionRouteImport } from './routes/partidas/vinculacion'
+import { Route as PartidasClonacionRouteImport } from './routes/partidas/clonacion'
+import { Route as DivisasDiscrepanciasRouteImport } from './routes/divisas/discrepancias'
 
 const RecalculoInsumosRoute = RecalculoInsumosRouteImport.update({
   id: '/recalculo-insumos',
@@ -34,17 +37,38 @@ const UsersCreateRoute = UsersCreateRouteImport.update({
   path: '/users/create',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartidasVinculacionRoute = PartidasVinculacionRouteImport.update({
+  id: '/partidas/vinculacion',
+  path: '/partidas/vinculacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartidasClonacionRoute = PartidasClonacionRouteImport.update({
+  id: '/partidas/clonacion',
+  path: '/partidas/clonacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DivisasDiscrepanciasRoute = DivisasDiscrepanciasRouteImport.update({
+  id: '/divisas/discrepancias',
+  path: '/divisas/discrepancias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/recalculo-insumos': typeof RecalculoInsumosRoute
+  '/divisas/discrepancias': typeof DivisasDiscrepanciasRoute
+  '/partidas/clonacion': typeof PartidasClonacionRoute
+  '/partidas/vinculacion': typeof PartidasVinculacionRoute
   '/users/create': typeof UsersCreateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/recalculo-insumos': typeof RecalculoInsumosRoute
+  '/divisas/discrepancias': typeof DivisasDiscrepanciasRoute
+  '/partidas/clonacion': typeof PartidasClonacionRoute
+  '/partidas/vinculacion': typeof PartidasVinculacionRoute
   '/users/create': typeof UsersCreateRoute
 }
 export interface FileRoutesById {
@@ -52,20 +76,48 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/recalculo-insumos': typeof RecalculoInsumosRoute
+  '/divisas/discrepancias': typeof DivisasDiscrepanciasRoute
+  '/partidas/clonacion': typeof PartidasClonacionRoute
+  '/partidas/vinculacion': typeof PartidasVinculacionRoute
   '/users/create': typeof UsersCreateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/recalculo-insumos' | '/users/create'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/recalculo-insumos'
+    | '/divisas/discrepancias'
+    | '/partidas/clonacion'
+    | '/partidas/vinculacion'
+    | '/users/create'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/recalculo-insumos' | '/users/create'
-  id: '__root__' | '/' | '/about' | '/recalculo-insumos' | '/users/create'
+  to:
+    | '/'
+    | '/about'
+    | '/recalculo-insumos'
+    | '/divisas/discrepancias'
+    | '/partidas/clonacion'
+    | '/partidas/vinculacion'
+    | '/users/create'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/recalculo-insumos'
+    | '/divisas/discrepancias'
+    | '/partidas/clonacion'
+    | '/partidas/vinculacion'
+    | '/users/create'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   RecalculoInsumosRoute: typeof RecalculoInsumosRoute
+  DivisasDiscrepanciasRoute: typeof DivisasDiscrepanciasRoute
+  PartidasClonacionRoute: typeof PartidasClonacionRoute
+  PartidasVinculacionRoute: typeof PartidasVinculacionRoute
   UsersCreateRoute: typeof UsersCreateRoute
 }
 
@@ -99,6 +151,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsersCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partidas/vinculacion': {
+      id: '/partidas/vinculacion'
+      path: '/partidas/vinculacion'
+      fullPath: '/partidas/vinculacion'
+      preLoaderRoute: typeof PartidasVinculacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partidas/clonacion': {
+      id: '/partidas/clonacion'
+      path: '/partidas/clonacion'
+      fullPath: '/partidas/clonacion'
+      preLoaderRoute: typeof PartidasClonacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/divisas/discrepancias': {
+      id: '/divisas/discrepancias'
+      path: '/divisas/discrepancias'
+      fullPath: '/divisas/discrepancias'
+      preLoaderRoute: typeof DivisasDiscrepanciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,6 +179,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   RecalculoInsumosRoute: RecalculoInsumosRoute,
+  DivisasDiscrepanciasRoute: DivisasDiscrepanciasRoute,
+  PartidasClonacionRoute: PartidasClonacionRoute,
+  PartidasVinculacionRoute: PartidasVinculacionRoute,
   UsersCreateRoute: UsersCreateRoute,
 }
 export const routeTree = rootRouteImport
